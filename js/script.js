@@ -15,14 +15,16 @@ window.addEventListener("scroll", function() {
 });
 
 $(document).ready(function(){
-  $('.nav__button').click(function() {
+  $('.nav__button').click(function(event) {
     $('.nav').toggleClass('nav__active');
     $(this).toggleClass('nav__button_active');
+    event.stopPropagation(); // предотвращение распространения события клика
   });
 
-  $('.header__menu_item').click(function() {
+  $('.header__menu_item').click(function(event) {
     $('.nav').removeClass('nav__active');
     $('.nav__button').removeClass('nav__button_active');
+    event.stopPropagation(); // предотвращение распространения события клика
   });
 
   if ($('.nav').length) {
@@ -37,7 +39,9 @@ $(document).ready(function(){
   
   $('.carousel__inner').slick({
     dots: true,
-    infinite: false,
+    infinite: true,
+    speed: 500,
+    cssEase: 'ease-in-out',
     prevArrow: '<button type="button" class="slick-prev"><img src="icons/arrow-left.png" alt="left"></button>',
     nextArrow: '<button type="button" class="slick-next"><img src="icons/arrow-right.png" alt="right"></button>',
     responsive: [
