@@ -62,9 +62,11 @@ $(document).ready(function(){
     .removeClass('catalog__tab_active')
     .closest('div.container')
     .find('div.catalog__content')
-    .removeClass('catalog__content_active')
-    .eq($(this).index()).addClass('catalog__content_active');
-    });
+    .hide()
+    .eq($(this).index())
+    .fadeIn('slow')
+    .css('display', 'flex');
+  });
 
   function toggleSlide(item) {
     $(item).each(function(i) {
@@ -102,4 +104,6 @@ $(document).ready(function(){
     $('.modal').hide();
     $('.modal_mini').fadeIn();
   });
+
+  new WOW().init();
 });
