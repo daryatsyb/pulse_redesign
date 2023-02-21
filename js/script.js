@@ -48,7 +48,9 @@ $(document).ready(function(){
       {
         breakpoint: 787,
         settings: {
-        arrows: false
+        arrows: false,
+        autoplay: true,
+        autoplaySpeed: 1300,
         }
       },
     ]
